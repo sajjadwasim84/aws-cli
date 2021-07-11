@@ -1,2 +1,8 @@
 aws ec2 describe-instances --region us-east-1 --instance-id i-0c92b975b8709727e
 
+
+aws ec2 describe-instances --region us-east-1 --query 'Reservations[*].Instances[*].{Instance:InstanceId, InstanceType:InstanceType, LaunchTime:LaunchTime, Monitoring:Monitoring.State, AZ:Placement.AvailabilityZone, HostName:PrivateDnsName, PrivateIpAddress:PrivateIpAddress, SecurityGroups:SecurityGroups[0].GroupName}' --output table
+
+
+
+
